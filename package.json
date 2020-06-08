@@ -33,14 +33,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.new-stacked",
-        "title": "Stacked: New Stacked"
+        "command": "extension.new-stacked-view-viewmodel",
+        "title": "Stacked: New Stacked View ViewModel"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.new-stacked",
+          "command": "extension.new-stacked-view-viewmodel",
           "group": "stackedGroup@1",
           "when": "explorerResourceIsFolder"
         }
