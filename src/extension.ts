@@ -1,27 +1,32 @@
-import * as _ from "lodash";
-import * as changeCase from "change-case";
-import { commands, ExtensionContext, Uri, window } from "vscode";
+import * as lodash from "lodash";
+import { commands, ExtensionContext, Uri } from "vscode";
 import { lstatSync } from "fs";
 import {
   promptForStackedName,
   promptForTargetDirectory,
   promptForUseReactive,
   generateStackedCode,
+  convertToPascalCase,
+  showErrorMessage,
+  showInformationMessage,
 } from "./utils";
 
 export function activate(_context: ExtensionContext) {
   commands.registerCommand("extension.new-stacked", async (uri: Uri) => {
     const stackedName = await promptForStackedName();
-    if (_.isNil(stackedName) || stackedName.trim() === "") {
-      window.showErrorMessage("The stacked name must not be empty");
+    if (lodash.isNil(stackedName) || stackedName.trim() === "") {
+      showErrorMessage("The stacked name must not be empty");
       return;
     }
 
     let targetDirectory;
-    if (_.isNil(_.get(uri, "fsPath")) || !lstatSync(uri.fsPath).isDirectory()) {
+    if (
+      lodash.isNil(lodash.get(uri, "fsPath")) ||
+      !lstatSync(uri.fsPath).isDirectory()
+    ) {
       targetDirectory = await promptForTargetDirectory();
-      if (_.isNil(targetDirectory)) {
-        window.showErrorMessage("Please select a valid directory");
+      if (lodash.isNil(targetDirectory)) {
+        showErrorMessage("Please select a valid directory");
         return;
       }
     } else {
@@ -30,19 +35,20 @@ export function activate(_context: ExtensionContext) {
 
     const useReactive = (await promptForUseReactive()) === "yes (default)";
 
-    const pascalCaseStackedName = changeCase.pascalCase(
+    const pascalCaseStackedName = convertToPascalCase(
       stackedName.toLowerCase()
     );
+
     try {
       await generateStackedCode(stackedName, targetDirectory, useReactive);
-      window.showInformationMessage(
+      showInformationMessage(
         `Successfully Generated ${pascalCaseStackedName} Stacked`
       );
     } catch (error) {
-      window.showErrorMessage(
-        `Error:
-        ${error instanceof Error ? error.message : JSON.stringify(error)}`
-      );
+      showErrorMessage(`
+      Error:
+      ${error instanceof Error ? error.message : JSON.stringify(error)}
+      `);
     }
   });
 }

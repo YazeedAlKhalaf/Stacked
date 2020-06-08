@@ -1,4 +1,5 @@
 import * as changeCase from "change-case";
+import { convertToPascalCase, convertToSnakeCase } from "../utils";
 
 export function getStackedViewTemplate(
   stackedViewName: string,
@@ -11,10 +12,10 @@ function getStackedViewTemplateAndDecideReactive(
   stackedViewName: string,
   useReactive: boolean
 ) {
-  const pascalCaseStackedViewName = changeCase.pascalCase(
+  const pascalCaseStackedViewName = convertToPascalCase(
     stackedViewName.toLowerCase()
   );
-  const snakeCaseStackedViewName = changeCase.snakeCase(
+  const snakeCaseStackedViewName = convertToSnakeCase(
     stackedViewName.toLowerCase()
   );
   const stackedView = `${pascalCaseStackedViewName}View`;
