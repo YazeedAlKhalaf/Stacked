@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+### Fixed
+
+- Code repetition
+
 ## [1.0.0] - 2020-06-08
 
 ### Added
