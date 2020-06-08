@@ -2,7 +2,7 @@
   "name": "stacked",
   "displayName": "Stacked",
   "description": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.45.0"
   },
@@ -10,16 +10,26 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onCommand:stacked.helloWorld"
+    "onCommand:stacked.new-stacked",
+    "workspaceContains:**/pubspec.yaml"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "stacked.helloWorld",
-        "title": "Hello World"
+        "command": "extension.new-stacked",
+        "title": "Stacked: New Stacked"
       }
     ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.new-stacked",
+          "group": "stackedGroup@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
     "snippets": [
       {
         "language": "dart",
@@ -47,5 +57,12 @@
     "mocha": "^7.1.2",
     "typescript": "^3.8.3",
     "vscode-test": "^1.3.0"
+  },
+  "dependencies": {
+    "@types/js-yaml": "^3.12.4",
+    "@types/lodash": "^4.14.155",
+    "@types/mkdirp": "^0.5.1",
+    "@types/semver": "^7.2.0",
+    "change-case": "^3.1.0"
   }
 }
