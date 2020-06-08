@@ -3,11 +3,26 @@
   "displayName": "Stacked",
   "description": "",
   "version": "1.0.0",
+  "publisher": "Yazeed AlKhalaf",
+  "bugs": {
+    "url": "https://github.com/YazeedAlKhalaf/Stacked/issues",
+    "email": "yazeedfady@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YazeedAlKhalaf/Stacked"
+  },
   "engines": {
     "vscode": "^1.45.0"
   },
   "categories": [
     "Snippets"
+  ],
+  "keywords": [
+    "dart",
+    "flutter",
+    "stacked",
+    "state-management"
   ],
   "activationEvents": [
     "onCommand:stacked.new-stacked",
