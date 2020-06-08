@@ -6,4 +6,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+## [1.0.0] - 2020-06-08
+
+### Added
+
+- Initial Release
+- Four snippets; `svrf`, `svnf`, `svrl`, and `svnl`
+- `Stacked: New Stacked` command
+- Updated `README.md`
