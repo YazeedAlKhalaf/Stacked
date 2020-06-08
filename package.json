@@ -4,6 +4,7 @@
   "description": "",
   "version": "1.0.0",
   "publisher": "Yazeed AlKhalaf",
+  "icon": "assets/logo.png",
   "bugs": {
     "url": "https://github.com/YazeedAlKhalaf/Stacked/issues",
     "email": "yazeedfady@gmail.com"
