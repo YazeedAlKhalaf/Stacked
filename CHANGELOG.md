@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## Fixed
+
+- `Stacked: New Stacked View-ViewModel` command doesn't work in last update, now it works
+
 ## [1.1.1] - 2020-06-09
 
 ## Fixed
@@ -16,7 +20,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Added
 
-- Changed name of `Stacked: New Stacked` command to `Stacked: New Stacked View ViewModel` command
+- Changed name of `Stacked: New Stacked` command to `Stacked: New Stacked View-ViewModel` command
 - `Stacked: New Stacked Skeleton` command
 - Updated `README.md`
 

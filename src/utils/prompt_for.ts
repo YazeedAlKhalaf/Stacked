@@ -1,9 +1,6 @@
 import {
-  commands,
-  ExtensionContext,
   OpenDialogOptions,
   QuickPickOptions,
-  Uri,
   window,
   InputBoxOptions,
 } from "vscode";
@@ -43,4 +40,17 @@ export async function promptForTargetDirectory(): Promise<string | undefined> {
     }
     return uri[0].fsPath;
   });
+}
+
+export function promptForOverrideDirectory(): Thenable<string | undefined> {
+  const overrideDirectoryPromptValues: string[] = ["yes", "no (default)"];
+  const overrideDirectoryPromptOptions: QuickPickOptions = {
+    placeHolder:
+      "There is a directory with that name, do you want to override the directory?",
+    canPickMany: false,
+  };
+  return window.showQuickPick(
+    overrideDirectoryPromptValues,
+    overrideDirectoryPromptOptions
+  );
 }

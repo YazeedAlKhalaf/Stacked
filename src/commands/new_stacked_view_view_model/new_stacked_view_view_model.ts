@@ -30,20 +30,14 @@ export async function newStackedViewViewModelCommand(uri: Uri) {
     targetDirectory = uri.fsPath;
   }
 
-  const useReactive = (await promptForUseReactive()) === "yes (default)";
-
-  const pascalCaseStackedName = Utils.convertToPascalCase(
-    stackedName.toLowerCase()
-  );
+  const useReactive: boolean =
+    (await promptForUseReactive()) === "yes (default)";
 
   try {
     await generateStackedViewViewModelCode(
       stackedName,
       targetDirectory,
       useReactive
-    );
-    Utils.showInformationMessage(
-      `Successfully Generated ${pascalCaseStackedName} Stacked View-ViewModel`
     );
   } catch (error) {
     Utils.showErrorMessage(`
