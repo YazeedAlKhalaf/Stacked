@@ -1,18 +1,19 @@
-import * as changeCase from "change-case";
 import { existsSync } from "fs";
+import { createDirectory } from "../../utils";
 import {
-  createDirectory,
-  createStackedViewTemplate,
   createStackedViewModelTemplate,
-} from ".";
+  createStackedViewTemplate,
+} from "./create_stacked_view_view_model_templates";
+import { Utils } from "../../utils";
 
-export async function generateStackedCode(
+export async function generateStackedViewViewModelCode(
   stackedName: string,
   targetDirectory: string,
   useReactive: boolean
 ) {
-  const lowerCaseStackedName = changeCase.lowerCase(stackedName);
-  const snakeCaseStackedName = changeCase.snakeCase(lowerCaseStackedName);
+  const snakeCaseStackedName = Utils.convertToSnakeCase(
+    stackedName.toLowerCase()
+  );
   const stackedDirectoryPath = `${targetDirectory}/${snakeCaseStackedName}`;
   if (!existsSync(stackedDirectoryPath)) {
     await createDirectory(stackedDirectoryPath);

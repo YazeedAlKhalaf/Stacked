@@ -1,17 +1,18 @@
-import * as changeCase from "change-case";
-import { existsSync, lstatSync, writeFile } from "fs";
+import { existsSync, writeFile } from "fs";
 import {
   getStackedViewTemplate,
   getStackedViewModelTemplate,
-} from "../templates";
+} from "../../templates";
+import { Utils } from "../../utils";
 
 export function createStackedViewTemplate(
   stackedName: string,
   targetDirectory: string,
   useReactive: boolean
 ) {
-  const lowerCaseStackedName = changeCase.lowerCase(stackedName);
-  const snakeCaseStackedName = changeCase.snakeCase(lowerCaseStackedName);
+  const snakeCaseStackedName = Utils.convertToSnakeCase(
+    stackedName.toLowerCase()
+  );
   const stackedDirectoryPath = `${targetDirectory}/${snakeCaseStackedName}/${snakeCaseStackedName}_view.dart`;
   if (existsSync(stackedDirectoryPath)) {
     throw Error(`${snakeCaseStackedName}_view.dart already exists`);
@@ -36,8 +37,9 @@ export function createStackedViewModelTemplate(
   stackedName: string,
   targetDirectory: string
 ) {
-  const lowerCaseStackedName = changeCase.lowerCase(stackedName);
-  const snakeCaseStackedName = changeCase.snakeCase(lowerCaseStackedName);
+  const snakeCaseStackedName = Utils.convertToSnakeCase(
+    stackedName.toLowerCase()
+  );
   const stackedDirectoryPath = `${targetDirectory}/${snakeCaseStackedName}/${snakeCaseStackedName}_view_model.dart`;
   if (existsSync(stackedDirectoryPath)) {
     throw Error(`${snakeCaseStackedName}_view_model.dart already exists`);

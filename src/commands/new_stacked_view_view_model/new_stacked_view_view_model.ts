@@ -1,20 +1,18 @@
 import * as lodash from "lodash";
 import { Uri } from "vscode";
 import { lstatSync } from "fs";
+import { generateStackedViewViewModelCode } from "./generate_stacked_view_view_model_code";
 import {
   promptForStackedName,
   promptForTargetDirectory,
   promptForUseReactive,
-  generateStackedCode,
-  convertToPascalCase,
-  showErrorMessage,
-  showInformationMessage,
+  Utils,
 } from "../../utils";
 
 export async function newStackedViewViewModelCommand(uri: Uri) {
   const stackedName = await promptForStackedName();
   if (lodash.isNil(stackedName) || stackedName.trim() === "") {
-    showErrorMessage("The stacked name must not be empty");
+    Utils.showErrorMessage("The stacked name must not be empty");
     return;
   }
 
@@ -25,7 +23,7 @@ export async function newStackedViewViewModelCommand(uri: Uri) {
   ) {
     targetDirectory = await promptForTargetDirectory();
     if (lodash.isNil(targetDirectory)) {
-      showErrorMessage("Please select a valid directory");
+      Utils.showErrorMessage("Please select a valid directory");
       return;
     }
   } else {
@@ -34,15 +32,21 @@ export async function newStackedViewViewModelCommand(uri: Uri) {
 
   const useReactive = (await promptForUseReactive()) === "yes (default)";
 
-  const pascalCaseStackedName = convertToPascalCase(stackedName.toLowerCase());
+  const pascalCaseStackedName = Utils.convertToPascalCase(
+    stackedName.toLowerCase()
+  );
 
   try {
-    await generateStackedCode(stackedName, targetDirectory, useReactive);
-    showInformationMessage(
+    await generateStackedViewViewModelCode(
+      stackedName,
+      targetDirectory,
+      useReactive
+    );
+    Utils.showInformationMessage(
       `Successfully Generated ${pascalCaseStackedName} Stacked`
     );
   } catch (error) {
-    showErrorMessage(`
+    Utils.showErrorMessage(`
       Error:
       ${error instanceof Error ? error.message : JSON.stringify(error)}
       `);

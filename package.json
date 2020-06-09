@@ -35,12 +35,21 @@
       {
         "command": "extension.new-stacked-view-viewmodel",
         "title": "Stacked: New Stacked View ViewModel"
+      },
+      {
+        "command": "extension.new-stacked-skeleton",
+        "title": "Stacked: New Stacked Skeleton"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.new-stacked-view-viewmodel",
+          "group": "stackedGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-stacked-skeleton",
           "group": "stackedGroup@1",
           "when": "explorerResourceIsFolder"
         }
@@ -79,6 +88,7 @@
     "@types/lodash": "^4.14.155",
     "@types/mkdirp": "^0.5.1",
     "@types/semver": "^7.2.0",
+    "@types/shelljs": "^0.8.8",
     "change-case": "^3.1.0"
   }
 }

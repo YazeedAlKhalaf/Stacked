@@ -1,11 +1,11 @@
-import { convertToPascalCase } from "../utils";
+import { Utils } from "../../utils";
 
 export function getStackedViewModelTemplate(stackedViewName: string): string {
   return getStackedViewModelTemplateAndDecideReactive(stackedViewName);
 }
 
 function getStackedViewModelTemplateAndDecideReactive(stackedViewName: string) {
-  const pascalCaseStackedViewName = convertToPascalCase(
+  const pascalCaseStackedViewName = Utils.convertToPascalCase(
     stackedViewName.toLowerCase()
   );
   const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
