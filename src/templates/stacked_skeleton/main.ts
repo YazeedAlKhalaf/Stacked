@@ -7,8 +7,7 @@ export class Main extends Base {
   constructor(fileName: string, projectName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:flutter/material.dart';
+    this._dartString = `import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:${projectName}/src/app/generated/locator/locator.dart';
 import 'package:${projectName}/src/app/generated/router/router.gr.dart';
@@ -43,9 +42,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-    
-`;
+}`;
   }
 
   get dartString(): string {

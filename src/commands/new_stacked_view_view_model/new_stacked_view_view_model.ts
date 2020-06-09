@@ -1,6 +1,6 @@
 import * as lodash from "lodash";
 import { Uri } from "vscode";
-import { lstatSync } from "fs";
+import { lstatSync, open } from "fs";
 import {
   promptForStackedName,
   promptForTargetDirectory,
@@ -20,15 +20,12 @@ export async function newStackedViewViewModelCommand(uri: Uri) {
 
   stackedName = Utils.convertToPascalCase(stackedName);
 
-  const customLocation: boolean = (await promptForCustomDirectory()) === "yes";
-
   let targetDirectory = undefined;
-  if (
-    (lodash.isNil(lodash.get(uri, "fsPath")) ||
-      !lstatSync(uri.fsPath).isDirectory()) &&
-    customLocation
-  ) {
-    targetDirectory = await promptForTargetDirectory();
+  const customLocation: boolean = (await promptForCustomDirectory()) === "yes";
+  if (customLocation) {
+    targetDirectory = await promptForTargetDirectory(
+      "Select The Custom Directory"
+    );
     if (lodash.isNil(targetDirectory)) {
       Utils.showErrorMessage("Please select a valid directory");
       return;

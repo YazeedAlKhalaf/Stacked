@@ -7,8 +7,7 @@ export class StartupView extends Base {
   constructor(fileName: string, suffix: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:flutter/material.dart';
+    this._dartString = `import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:${YamlHelper.getProjectName()}/src/ui/global/ui_helpers.dart';
 import 'package:${YamlHelper.getProjectName()}/src/ui/global/app_colors.dart';
@@ -55,8 +54,7 @@ class _StartupViewState extends State<StartupView> {
       },
     );
   }
-}
-`;
+}`;
   }
 
   get dartString(): string {

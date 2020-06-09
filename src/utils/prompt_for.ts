@@ -27,10 +27,12 @@ export function promptForUseReactive(): Thenable<string | undefined> {
   );
 }
 
-export async function promptForTargetDirectory(): Promise<string | undefined> {
+export async function promptForTargetDirectory(
+  openLabel?: string
+): Promise<string | undefined> {
   const options: OpenDialogOptions = {
     canSelectMany: false,
-    openLabel: "Select The Views Folder In Your Project",
+    openLabel: openLabel ?? "Select The Views Folder In Your Project",
     canSelectFolders: true,
   };
 

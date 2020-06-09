@@ -13,8 +13,7 @@ export class ViewModel extends Base {
     const pascalCaseStackedViewName = Utils.convertToPascalCase(className);
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
-    this._dartString = `
-import 'package:stacked/stacked.dart';
+    this._dartString = `import 'package:stacked/stacked.dart';
 
 class ${stackedViewModel} extends BaseViewModel {}
 `;

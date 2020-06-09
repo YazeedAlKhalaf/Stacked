@@ -8,8 +8,9 @@ export class Pubspec extends Base {
   constructor(fileName: string, projectName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-name: ${projectName !== undefined ? projectName : "example_app"}
+    this._dartString = `name: ${
+      projectName !== undefined ? projectName : "example_app"
+    }
 description: A new Flutter project.
 version: 1.0.0+1
 
@@ -79,8 +80,7 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
-`;
+  # see https://flutter.dev/custom-fonts/#from-packages`;
   }
 
   get dartString(): string {

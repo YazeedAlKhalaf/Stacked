@@ -7,12 +7,10 @@ export class Utils extends Base {
   constructor(fileName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:injectable/injectable.dart';
+    this._dartString = `import 'package:injectable/injectable.dart';
 
 @lazySingleton
-class Utils {}    
-`;
+class Utils {}    `;
   }
 
   get dartString(): string {

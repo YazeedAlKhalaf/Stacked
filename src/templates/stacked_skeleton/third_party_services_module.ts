@@ -7,8 +7,7 @@ export class ThirdPartyServicesModule extends Base {
   constructor(fileName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:injectable/injectable.dart';
+    this._dartString = `import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 @module
@@ -19,8 +18,7 @@ abstract class ThirdPartyServicesModule {
   DialogService get dialogService;
   @lazySingleton
   SnackbarService get snackBarService;
-}    
-`;
+}`;
   }
 
   get dartString(): string {

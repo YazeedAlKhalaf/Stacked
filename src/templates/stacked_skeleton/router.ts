@@ -7,8 +7,7 @@ export class Router extends Base {
   constructor(fileName: string, projectName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:auto_route/auto_route_annotations.dart';
+    this._dartString = `import 'package:auto_route/auto_route_annotations.dart';
 import 'package:${projectName}/src/ui/views/startup/startup_view.dart';
 import 'package:${projectName}/src/ui/views/home/home_view.dart';
 
@@ -18,8 +17,7 @@ class $Router {
   StartupView startupViewRoute;
 
   HomeView homeViewRoute;
-}    
-`;
+}`;
   }
 
   get dartString(): string {

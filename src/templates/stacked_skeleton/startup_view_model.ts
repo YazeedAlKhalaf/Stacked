@@ -7,8 +7,7 @@ export class StartupViewModel extends Base {
   constructor(fileName: string, suffix: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'dart:async';
+    this._dartString = `import 'dart:async';
 
 import 'package:${YamlHelper.getProjectName()}/src/app/generated/locator/locator.dart';
 import 'package:${YamlHelper.getProjectName()}/src/app/generated/router/router.gr.dart';
@@ -29,8 +28,7 @@ class StartupViewModel extends BaseViewModel {
   Future navigateToHomeView() async {
     await _navigationService.pushNamedAndRemoveUntil(Routes.homeViewRoute);
   }
-}  
-`;
+}`;
   }
 
   get dartString(): string {

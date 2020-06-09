@@ -7,8 +7,7 @@ export class UiHelpers extends Base {
   constructor(fileName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:flutter/material.dart';
+    this._dartString = `import 'package:flutter/material.dart';
 
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
@@ -57,8 +56,7 @@ double blockSizeHorizontal(BuildContext context) {
 double blockSizeVertical(BuildContext context) {
   SizeConfig().init(context);
   return SizeConfig.blockSizeVertical;
-}
-`;
+}`;
   }
 
   get dartString(): string {

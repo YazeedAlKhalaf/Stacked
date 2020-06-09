@@ -7,8 +7,7 @@ export class Logger extends Base {
   constructor(fileName: string, suffix?: string) {
     super(fileName, suffix);
 
-    this._dartString = `
-import 'package:logger/logger.dart';
+    this._dartString = `import 'package:logger/logger.dart';
 
 Logger getLogger(String className) {
   return Logger(
@@ -37,8 +36,7 @@ class SimpleLogPrinter extends LogPrinter {
 
     return [];
   }
-}    
-`;
+}`;
   }
 
   get dartString(): string {

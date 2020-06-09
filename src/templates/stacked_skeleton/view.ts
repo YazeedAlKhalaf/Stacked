@@ -19,13 +19,12 @@ export class View extends Base {
     const stackedView = `${pascalCaseStackedViewName}View`;
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
-    this._dartString = `
-import 'package:flutter/material.dart';
+    this._dartString = `import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import './${fileName}_view_model.dart';
 
-class ${className} extends StatelessWidget {
+class ${stackedView} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<${stackedViewModel}>.${
