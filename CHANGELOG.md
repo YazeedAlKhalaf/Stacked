@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-06-09
+
 ## Added
 
 - Changed name of `Stacked: New Stacked` command to `Stacked: New Stacked View ViewModel` command
@@ -16,6 +18,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Code repetition
 
+## Removed
+
+- `Stacked: New Stacked` command
+
 ## [1.0.0] - 2020-06-08
 
 ### Added
@@ -24,3 +30,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Four snippets; `svrf`, `svnf`, `svrl`, and `svnl`
 - `Stacked: New Stacked` command
 - Updated `README.md`
+
+[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.0
+[1.0.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.0.0
