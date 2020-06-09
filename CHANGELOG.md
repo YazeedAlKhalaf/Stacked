@@ -10,6 +10,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Changed name of `Stacked: New Stacked` command to `Stacked: New Stacked View ViewModel` command
 - `Stacked: New Stacked Skeleton` command
+- Updated `README.md`
 
 ### Fixed
 

@@ -26,7 +26,8 @@
     "state-management"
   ],
   "activationEvents": [
-    "onCommand:stacked.new-stacked",
+    "onCommand:extension.new-stacked-skeleton",
+    "onCommand:extension.new-stacked-view-viewmodel",
     "workspaceContains:**/pubspec.yaml"
   ],
   "main": "./out/extension.js",
@@ -34,7 +35,7 @@
     "commands": [
       {
         "command": "extension.new-stacked-view-viewmodel",
-        "title": "Stacked: New Stacked View ViewModel"
+        "title": "Stacked: New Stacked View-ViewModel"
       },
       {
         "command": "extension.new-stacked-skeleton",
@@ -58,7 +59,7 @@
     "snippets": [
       {
         "language": "dart",
-        "path": "./snippets/dart.json"
+        "path": "./src/snippets/dart.json"
       }
     ]
   },

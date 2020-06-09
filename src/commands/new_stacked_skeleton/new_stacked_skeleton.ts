@@ -1,37 +1,27 @@
 import * as lodash from "lodash";
 import { Uri } from "vscode";
-import { lstatSync } from "fs";
-import { generateStackedSkeletonCode } from "./generate_stacked_skeleton_code";
-import {
-  promptForTargetDirectory,
-  promptForUseReactive,
-  Utils,
-} from "../../utils";
+import { Architecture } from "../../utils/architecture";
+import { FileSystemManager } from "../../utils/file_system_manager";
+import { VsCodeActions } from "../../utils/vs_code_actions";
+import path = require("path");
+import { ViewFile } from "../../utils/view_file";
 
 export async function newStackedSkeltonCommand(uri: Uri) {
-  let targetDirectory;
-  if (
-    lodash.isNil(lodash.get(uri, "fsPath")) ||
-    !lstatSync(uri.fsPath).isDirectory()
-  ) {
-    targetDirectory = await promptForTargetDirectory();
-    if (lodash.isNil(targetDirectory)) {
-      Utils.showErrorMessage("Please select a valid directory");
-      return;
-    }
-  } else {
-    targetDirectory = uri.fsPath;
+  if (!FileSystemManager.isFlutterProject()) {
+    return;
   }
 
-  const useReactive = (await promptForUseReactive()) === "yes (default)";
+  let rootPath = VsCodeActions.rootPath;
+  let projectPath = VsCodeActions.rootPath;
 
-  try {
-    await generateStackedSkeletonCode(targetDirectory, useReactive);
-    Utils.showInformationMessage(`Successfully Generated Stacked Skelelton`);
-  } catch (error) {
-    Utils.showErrorMessage(`
-      Error:
-      ${error instanceof Error ? error.message : JSON.stringify(error)}
-      `);
+  if (lodash.isUndefined(rootPath)) {
+    return;
   }
+  if (lodash.isUndefined(projectPath)) {
+    return;
+  }
+
+  new Architecture(projectPath, path.join(rootPath, "lib/src")).init();
+  new ViewFile(rootPath, "home").createViewViewModel();
+  new ViewFile(rootPath, "startup").createStartupViewViewModel();
 }

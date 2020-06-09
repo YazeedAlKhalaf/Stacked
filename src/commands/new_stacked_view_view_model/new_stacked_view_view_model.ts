@@ -43,7 +43,7 @@ export async function newStackedViewViewModelCommand(uri: Uri) {
       useReactive
     );
     Utils.showInformationMessage(
-      `Successfully Generated ${pascalCaseStackedName} Stacked`
+      `Successfully Generated ${pascalCaseStackedName} Stacked View-ViewModel`
     );
   } catch (error) {
     Utils.showErrorMessage(`
