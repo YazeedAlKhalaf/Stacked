@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.1.2] - 2020-06-10
+
 ## Fixed
 
 - `Stacked: New Stacked View-ViewModel` command doesn't work in last update, now it works
@@ -42,7 +44,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - `Stacked: New Stacked` command
 - Updated `README.md`
 
-[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v1.1.1...HEAD
+[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.2
 [1.1.1]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.1
 [1.1.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.0
 [1.0.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.0.0
