@@ -13,6 +13,7 @@ export class ViewFile {
   constructor(
     private rootPath: string,
     private fileName: string,
+    private useReactive: boolean,
     private folders?: string[]
   ) {
     console.debug(`ViewFile(rootPath: ${rootPath}, fileName: ${fileName})`);
@@ -41,7 +42,7 @@ export class ViewFile {
   private createView() {
     this.createFiles(
       this.snakeCasedFileName + "_view.dart",
-      new View(this.snakeCasedFileName, "View").dartString
+      new View(this.snakeCasedFileName, "View", this.useReactive).dartString
     );
   }
 
@@ -69,14 +70,7 @@ export class ViewFile {
         this.snakeCasedFileName
       );
     }
-    return path.join(
-      this.rootPath,
-      "lib",
-      "src",
-      "ui",
-      "views",
-      this.snakeCasedFileName
-    );
+    return path.join(...this.folders, this.snakeCasedFileName);
   }
 
   private createFiles(fileName: string, data: string) {

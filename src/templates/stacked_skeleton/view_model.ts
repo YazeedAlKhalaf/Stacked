@@ -10,9 +10,7 @@ export class ViewModel extends Base {
     let classPrefixList: string[] = this.className.split("View");
     const className = classPrefixList[0];
 
-    const pascalCaseStackedViewName = Utils.convertToPascalCase(
-      className.toLowerCase()
-    );
+    const pascalCaseStackedViewName = Utils.convertToPascalCase(className);
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
     this._dartString = `

@@ -1,48 +1,52 @@
 import * as lodash from "lodash";
 import { Uri } from "vscode";
 import { lstatSync } from "fs";
-import { generateStackedViewViewModelCode } from "./generate_stacked_view_view_model_code";
 import {
   promptForStackedName,
   promptForTargetDirectory,
   promptForUseReactive,
   Utils,
+  promptForCustomDirectory,
 } from "../../utils";
+import { ViewFile } from "../../utils/view_file";
+import { VsCodeActions } from "../../utils/vs_code_actions";
 
 export async function newStackedViewViewModelCommand(uri: Uri) {
-  const stackedName = await promptForStackedName();
+  let stackedName = await promptForStackedName();
   if (lodash.isNil(stackedName) || stackedName.trim() === "") {
-    Utils.showErrorMessage("The stacked name must not be empty");
+    Utils.showErrorMessage("The stacked name can't not be empty");
     return;
   }
 
-  let targetDirectory;
+  stackedName = Utils.convertToPascalCase(stackedName);
+
+  const customLocation: boolean = (await promptForCustomDirectory()) === "yes";
+
+  let targetDirectory = undefined;
   if (
-    lodash.isNil(lodash.get(uri, "fsPath")) ||
-    !lstatSync(uri.fsPath).isDirectory()
+    (lodash.isNil(lodash.get(uri, "fsPath")) ||
+      !lstatSync(uri.fsPath).isDirectory()) &&
+    customLocation
   ) {
     targetDirectory = await promptForTargetDirectory();
     if (lodash.isNil(targetDirectory)) {
       Utils.showErrorMessage("Please select a valid directory");
       return;
     }
-  } else {
-    targetDirectory = uri.fsPath;
   }
 
   const useReactive: boolean =
     (await promptForUseReactive()) === "yes (default)";
 
-  try {
-    await generateStackedViewViewModelCode(
-      stackedName,
-      targetDirectory,
-      useReactive
-    );
-  } catch (error) {
-    Utils.showErrorMessage(`
-      Error:
-      ${error instanceof Error ? error.message : JSON.stringify(error)}
-      `);
-  }
+  let rootPath = VsCodeActions.rootPath;
+
+  customLocation
+    ? new ViewFile(
+        rootPath,
+        stackedName,
+        useReactive,
+        // @ts-ignore
+        targetDirectory.split("/")
+      ).createViewViewModel()
+    : new ViewFile(rootPath, stackedName, useReactive).createViewViewModel();
 }

@@ -4,18 +4,18 @@ import { Utils } from "../../utils";
 export class View extends Base {
   private _dartString: string;
 
-  constructor(fileName: string, suffix: string) {
+  constructor(fileName: string, suffix: string, useReactive: boolean) {
     super(fileName, suffix);
 
     let classPrefixList: string[] = this.className.split("View");
     const className = classPrefixList[0];
 
-    const pascalCaseStackedViewName = Utils.convertToPascalCase(
-      className.toLowerCase()
-    );
-    const snakeCaseStackedViewName = Utils.convertToSnakeCase(
-      className.toLowerCase()
-    );
+    const pascalCaseStackedViewName = Utils.convertToPascalCase(className);
+    console.log("pascal", pascalCaseStackedViewName);
+
+    const snakeCaseStackedViewName = Utils.convertToSnakeCase(className);
+    console.log("snake", snakeCaseStackedViewName);
+
     const stackedView = `${pascalCaseStackedViewName}View`;
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
@@ -23,12 +23,14 @@ export class View extends Base {
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import './${snakeCaseStackedViewName}_view_model.dart';
+import './${fileName}_view_model.dart';
 
-class ${stackedView} extends StatelessWidget {
+class ${className} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<${stackedViewModel}>.reactive(
+    return ViewModelBuilder<${stackedViewModel}>.${
+      useReactive ? "reactive" : "nonReactive"
+    }(
       viewModelBuilder: () => ${stackedViewModel}(),
       builder: (
         BuildContext context,

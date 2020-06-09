@@ -9,6 +9,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Fixed
 
 - `Stacked: New Stacked View-ViewModel` command doesn't work in last update, now it works
+- Mistyping the name of the class when prompted breaks the extension sometimes, now it is fixed
 
 ## [1.1.1] - 2020-06-09
 

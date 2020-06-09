@@ -8,7 +8,7 @@ import * as lodash from "lodash";
 
 export function promptForStackedName(): Thenable<string | undefined> {
   const stackedNamePromptOptions: InputBoxOptions = {
-    prompt: "Stacked Name",
+    prompt: "Stacked View-ViewModel Name",
     placeHolder: "e.g StartUp | Don't write `StartUpView`",
   };
   return window.showInputBox(stackedNamePromptOptions);
@@ -42,15 +42,15 @@ export async function promptForTargetDirectory(): Promise<string | undefined> {
   });
 }
 
-export function promptForOverrideDirectory(): Thenable<string | undefined> {
-  const overrideDirectoryPromptValues: string[] = ["yes", "no (default)"];
-  const overrideDirectoryPromptOptions: QuickPickOptions = {
+export function promptForCustomDirectory(): Thenable<string | undefined> {
+  const customDirectoryPromptValues: string[] = ["no (default)", "yes"];
+  const customDirectoryPromptOptions: QuickPickOptions = {
     placeHolder:
-      "There is a directory with that name, do you want to override the directory?",
+      "Do you want to place you files in a custom directory? aka NOT `views` directory",
     canPickMany: false,
   };
   return window.showQuickPick(
-    overrideDirectoryPromptValues,
-    overrideDirectoryPromptOptions
+    customDirectoryPromptValues,
+    customDirectoryPromptOptions
   );
 }

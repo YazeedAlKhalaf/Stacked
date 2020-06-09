@@ -11,8 +11,10 @@
 2. `Stacked: New Stacked View-ViewModel`
    - This Command generates for you everything you need to create your stacked view-viewmodel folder.
    - You can use this command in two ways:
-     1. Click `Ctrl+Shift+P` then search for `Stacked: New Stacked View ViewModel`.
-     2. Right click on the `views` folder, then click on `Stacked: New Stacked View ViewModel` option.
+     1. Click `Ctrl+Shift+P` then search for `Stacked: New Stacked-View ViewModel`.
+        - if you use this way, you can customize where to put yout files by using a native dialog.
+     2. Right click on the `views` folder, then click on `Stacked: New Stacked View-ViewModel` option.
+        - If you use this way, you can
 
 ## Snippets Usage
 
