@@ -1,4 +1,4 @@
-# Stacked VS Code Extension
+# <img src="assets/logo.png" width="25" /> Stacked VS Code Extension
 
 ## Commands Usage
 
