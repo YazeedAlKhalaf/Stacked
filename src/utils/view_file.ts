@@ -4,10 +4,10 @@ import { existsSync } from "fs";
 import { FileSystemManager } from "./file_system_manager";
 import { YamlHelper } from "./yaml_helper";
 import { Utils } from "./utils";
-import { View } from "../templates/stacked_skeleton/view";
-import { ViewModel } from "../templates/stacked_skeleton/view_model";
-import { StartupViewModel } from "../templates/stacked_skeleton/startup_view_model";
-import { StartupView } from "../templates/stacked_skeleton/startup_view";
+import { View } from "../templates/stacked_skeleton/app/ui/views/view";
+import { ViewModel } from "../templates/stacked_skeleton/app/ui/views/view_model";
+import { StartupViewModel } from "../templates/stacked_skeleton/app/ui/views/startup_view_model";
+import { StartupView } from "../templates/stacked_skeleton/app/ui/views/startup_view";
 
 export class ViewFile {
   constructor(

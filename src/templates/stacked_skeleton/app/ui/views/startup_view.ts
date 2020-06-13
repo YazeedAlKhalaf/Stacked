@@ -1,5 +1,5 @@
-import { Base } from "./base";
-import { YamlHelper } from "../../utils/yaml_helper";
+import { Base } from "../../../base";
+import { YamlHelper } from "../../../../../utils/yaml_helper";
 
 export class StartupView extends Base {
   private _dartString: string;

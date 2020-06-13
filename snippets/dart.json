@@ -5,7 +5,7 @@
       "import 'package:flutter/material.dart';",
       "import 'package:stacked/stacked.dart';",
       "",
-      "class ${1:${1}}View extends StatelessWidget {",
+      "class ${1:NameOfClass}View extends StatelessWidget {",
       "",
       "\t@override",
       "\tWidget build(BuildContext context) {",
@@ -35,7 +35,7 @@
       "import 'package:flutter/material.dart';",
       "import 'package:stacked/stacked.dart';",
       "",
-      "class ${1:${1}}View extends StatelessWidget {",
+      "class ${1:NameOfClass}View extends StatelessWidget {",
       "",
       "\t@override",
       "\tWidget build(BuildContext context) {",
@@ -65,7 +65,7 @@
       "import 'package:flutter/material.dart';",
       "import 'package:stacked/stacked.dart';",
       "",
-      "class ${1:NameOfClass}ViewView extends StatefulWidget {",
+      "class ${1:NameOfClass}View extends StatefulWidget {",
       "\t@override",
       "\t_${1}ViewState createState() => _${1}ViewState();",
       "}",
@@ -99,7 +99,7 @@
       "import 'package:flutter/material.dart';",
       "import 'package:stacked/stacked.dart';",
       "",
-      "class ${1:NameOfClass}ViewView extends StatefulWidget {",
+      "class ${1:NameOfClass}View extends StatefulWidget {",
       "\t@override",
       "\t_${1}ViewState createState() => _${1}ViewState();",
       "}",
@@ -125,6 +125,14 @@
       "\t\t);",
       "\t}",
       "}"
+    ]
+  },
+  "StackedViewModel": {
+    "prefix": ["svm", "stackedViewModel"],
+    "body": [
+      "import 'package:stacked/stacked.dart';",
+      "",
+      "class ${1:NameOfClass}ViewModel extends ${2:BaseViewModel} {$0}"
     ]
   }
 }

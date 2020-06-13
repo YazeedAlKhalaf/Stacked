@@ -3,18 +3,19 @@ import * as _ from "lodash";
 import { FileSystemManager } from "./file_system_manager";
 import { WriteFileOptions } from "fs";
 import { Utils } from "./utils";
-import { Logger } from "../templates/stacked_skeleton/logger";
+import { Logger } from "../templates/stacked_skeleton/app/utils/logger";
 import { Main } from "../templates/stacked_skeleton/main";
 import { YamlHelper } from "./yaml_helper";
-import * as UtilsTemplate from "../templates/stacked_skeleton/utils";
-import { ThirdPartyServicesModule } from "../templates/stacked_skeleton/third_party_services_module";
-import { Locator } from "../templates/stacked_skeleton/locator";
-import { Router } from "../templates/stacked_skeleton/router";
-import { AppColors } from "../templates/stacked_skeleton/app_colors";
-import { UiHelpers } from "../templates/stacked_skeleton/ui_helpers";
+import * as UtilsTemplate from "../templates/stacked_skeleton/app/utils/utils";
+import { ThirdPartyServicesModule } from "../templates/stacked_skeleton/app/services/third_party_services_module";
+import { Locator } from "../templates/stacked_skeleton/app/generated/locator/locator";
+import { Router } from "../templates/stacked_skeleton/app/generated/router/router";
+import { AppColors } from "../templates/stacked_skeleton/app/ui/global/app_colors";
+import { UiHelpers } from "../templates/stacked_skeleton/app/ui/global/ui_helpers";
 import { Pubspec } from "../templates/stacked_skeleton/pubspec";
 import { VsCodeActions } from "./vs_code_actions";
 import * as shell from "shelljs";
+import { BusyOverlay } from "../templates/stacked_skeleton/app/ui/widgets/dumb/busy_overlay";
 
 let projectName: string;
 projectName = YamlHelper.getProjectName();
@@ -223,6 +224,12 @@ export class Architecture {
     if (!folderCreated) {
       return;
     }
+
+    this.createFile(
+      widgetsPath,
+      "busy_overlay.dart",
+      new BusyOverlay("busy_overlay.dart", projectName).dartString
+    );
 
     console.debug(`FolderCreated: ${folderCreated}`);
   }

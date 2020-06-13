@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import { Base } from "./base";
+import { Base } from "../../../base";
 
 export class UiHelpers extends Base {
   private _dartString: string;

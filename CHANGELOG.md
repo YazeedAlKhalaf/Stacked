@@ -6,6 +6,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.1.3]
+
+## Added
+
+- `svm` snippet
+
+## Fixed
+
+- Snippets did not work, now they do
+
 ## [1.1.2] - 2020-06-10
 
 ## Fixed
@@ -44,7 +54,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - `Stacked: New Stacked` command
 - Updated `README.md`
 
-[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v1.1.2...HEAD
+[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.3
 [1.1.2]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.2
 [1.1.1]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.1
 [1.1.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.0

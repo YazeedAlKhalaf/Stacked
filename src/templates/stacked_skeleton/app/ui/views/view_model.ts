@@ -1,5 +1,5 @@
-import { Base } from "./base";
-import { Utils } from "../../utils";
+import { Base } from "../../../base";
+import { Utils } from "../../../../../utils";
 
 export class ViewModel extends Base {
   private _dartString: string;
