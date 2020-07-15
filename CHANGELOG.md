@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-7-15
+
 ## Added
 
 - `CustomBaseViewModel.ts` template for sharing stuff between ViewModels
