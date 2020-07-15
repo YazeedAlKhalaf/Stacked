@@ -11,13 +11,13 @@ export class Router extends Base {
 import 'package:${projectName}/src/ui/views/startup/startup_view.dart';
 import 'package:${projectName}/src/ui/views/home/home_view.dart';
 
-@MaterialAutoRouter()
-class $Router {
-  @initial
-  StartupView startupViewRoute;
-
-  HomeView homeViewRoute;
-}`;
+@MaterialAutoRouter(
+  routes: <AutoRoute>[
+    MaterialRoute(page: StartupView, initial: true),
+    MaterialRoute(page: HomeView),
+  ],
+)
+class $Router {}`;
   }
 
   get dartString(): string {

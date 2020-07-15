@@ -6,6 +6,19 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## Fixed
+
+- Fixed `pubspec.yaml` template, there was no flutter section 👀
+
+## Changed
+
+- `pubpspec.yaml` template is updated with new versions of the packages.
+- `router.dart` template is updated to use new standards
+
+## Removed
+
+- Removed old packages
+
 ## [1.1.3]
 
 ## Added
