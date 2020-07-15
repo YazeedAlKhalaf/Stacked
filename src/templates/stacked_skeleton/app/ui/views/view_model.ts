@@ -1,5 +1,6 @@
 import { Base } from "../../../base";
 import { Utils } from "../../../../../utils";
+import { YamlHelper } from "../../../../../utils/yaml_helper";
 
 export class ViewModel extends Base {
   private _dartString: string;
@@ -13,9 +14,9 @@ export class ViewModel extends Base {
     const pascalCaseStackedViewName = Utils.convertToPascalCase(className);
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
-    this._dartString = `import 'package:stacked/stacked.dart';
+    this._dartString = `import 'package:${YamlHelper.getProjectName()}/src/ui/global/custom_base_view_model.dart';
 
-class ${stackedViewModel} extends BaseViewModel {}
+class ${stackedViewModel} extends CustomBaseViewModel {}
 `;
   }
 

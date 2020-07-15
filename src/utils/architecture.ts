@@ -16,6 +16,7 @@ import { Pubspec } from "../templates/stacked_skeleton/pubspec";
 import { VsCodeActions } from "./vs_code_actions";
 import * as shell from "shelljs";
 import { BusyOverlay } from "../templates/stacked_skeleton/app/ui/widgets/dumb/busy_overlay";
+import { CustomBaseViewModel } from "../templates/stacked_skeleton/app/ui/global/custom_base_view_model";
 
 let projectName: string;
 projectName = YamlHelper.getProjectName();
@@ -212,6 +213,12 @@ export class Architecture {
       globalPath,
       "ui_helpers.dart",
       new UiHelpers("ui_helpers.dart").dartString
+    );
+
+    this.createFile(
+      globalPath,
+      "custom_base_view_model.dart",
+      new CustomBaseViewModel("custom_base_view_model.dart").dartString
     );
 
     console.debug(`FolderCreated: ${folderCreated}`);

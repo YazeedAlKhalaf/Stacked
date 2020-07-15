@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## Added
+
+- `CustomBaseViewModel.ts` template for sharing stuff between ViewModels
+
 ## Fixed
 
 - Fixed `pubspec.yaml` template, there was no flutter section 👀
@@ -14,6 +18,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - `pubpspec.yaml` template is updated with new versions of the packages.
 - `router.dart` template is updated to use new standards
+- `view_model.ts` template is updated to use `CustomBaseViewModel`
 
 ## Removed
 
