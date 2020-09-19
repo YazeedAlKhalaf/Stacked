@@ -1,6 +1,6 @@
-import { Base } from "../../../base";
-import { Utils } from "../../../../../utils";
-import { YamlHelper } from "../../../../../utils/yaml_helper";
+import { Base } from "../../base";
+import { Utils } from "../../../../utils";
+import { YamlHelper } from "../../../../utils/yaml_helper";
 
 export class ViewModel extends Base {
   private _dartString: string;

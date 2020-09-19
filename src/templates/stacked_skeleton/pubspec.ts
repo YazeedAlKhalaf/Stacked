@@ -1,6 +1,5 @@
 import * as _ from "lodash";
 import { Base } from "./base";
-import { YamlHelper } from "../../utils/yaml_helper";
 
 export class Pubspec extends Base {
   private _dartString: string;
@@ -20,30 +19,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Cupertino Icons
-  cupertino_icons: ^0.1.3
-  # Stacked
-  stacked: ^1.7.2
+  
+  # state management
+  stacked: ^1.7.6
+  
   # third-party services
-  stacked_services: ^0.4.4+3
+  stacked_services: ^0.5.4+3
+  
   # navigation
-  auto_route: ^0.6.1
+  auto_route: ^0.6.7
+  
   # inversion of control
-  get_it: ^4.0.2
-  injectable: ^0.4.0+1
-  # loading animations
-  flutter_spinkit: ^4.1.2+1
-  # logger
-  logger: ^0.9.1
+  get_it: ^4.0.4
+  injectable: ^1.0.4
+  
+  # icons
+  cupertino_icons: ^1.0.0
+  font_awesome_flutter: ^8.8.1
+  
+  # misc
+  logger: ^0.9.2
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   # Generators
-  build_runner: ^1.10.0
-  auto_route_generator: ^0.6.0
-  injectable_generator: ^0.4.1
+  build_runner: ^1.10.1
+  auto_route_generator: ^0.6.8
+  injectable_generator: ^1.0.4
   
 flutter:
   uses-material-design: true

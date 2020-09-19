@@ -10,13 +10,14 @@ import * as UtilsTemplate from "../templates/stacked_skeleton/app/utils/utils";
 import { ThirdPartyServicesModule } from "../templates/stacked_skeleton/app/services/third_party_services_module";
 import { Locator } from "../templates/stacked_skeleton/app/generated/locator/locator";
 import { Router } from "../templates/stacked_skeleton/app/generated/router/router";
-import { AppColors } from "../templates/stacked_skeleton/app/ui/global/app_colors";
-import { UiHelpers } from "../templates/stacked_skeleton/app/ui/global/ui_helpers";
+import { UiHelpers } from "../templates/stacked_skeleton/ui/global/ui_helpers";
 import { Pubspec } from "../templates/stacked_skeleton/pubspec";
 import { VsCodeActions } from "./vs_code_actions";
-import * as shell from "shelljs";
-import { BusyOverlay } from "../templates/stacked_skeleton/app/ui/widgets/dumb/busy_overlay";
-import { CustomBaseViewModel } from "../templates/stacked_skeleton/app/ui/global/custom_base_view_model";
+import { Busy } from "../templates/stacked_skeleton/ui/widgets/dumb/busy";
+import { CustomBaseViewModel } from "../templates/stacked_skeleton/ui/global/custom_base_view_model";
+import { Skeleton } from "../templates/stacked_skeleton/ui/widgets/dumb/skeleton";
+import { Constants } from "../templates/stacked_skeleton/app/utils/constants";
+import { App } from "../templates/stacked_skeleton/app/app";
 
 let projectName: string;
 projectName = YamlHelper.getProjectName();
@@ -91,6 +92,12 @@ export class Architecture {
     this.initUtils(appPath);
     this.initModels(appPath);
     this.initGenerated(appPath);
+
+    this.createFile(
+      appPath,
+      "app.dart",
+      new App("app.dart", projectName).dartString
+    );
   }
 
   private initUi() {
@@ -110,9 +117,16 @@ export class Architecture {
 
     this.createFile(
       utilsPath,
+      "constants.dart",
+      new Constants("constants.dart").dartString
+    );
+
+    this.createFile(
+      utilsPath,
       "utils.dart",
       new UtilsTemplate.Utils("utils.dart").dartString
     );
+
     this.createFile(
       utilsPath,
       "logger.dart",
@@ -205,12 +219,6 @@ export class Architecture {
 
     this.createFile(
       globalPath,
-      "app_colors.dart",
-      new AppColors("app_colors.dart").dartString
-    );
-
-    this.createFile(
-      globalPath,
       "ui_helpers.dart",
       new UiHelpers("ui_helpers.dart").dartString
     );
@@ -225,18 +233,40 @@ export class Architecture {
   }
 
   private initWidgets(uiPath: string) {
-    let widgetsPath = path.join(uiPath, "widgets");
+    this.initDumbWidgets(uiPath);
+    this.initSmartWidgets(uiPath);
+  }
 
-    let folderCreated = FileSystemManager.createFolder(widgetsPath);
+  private initDumbWidgets(uiPath: string) {
+    let dumbWidgetsPath = path.join(uiPath, "widgets", "dumb");
+
+    let folderCreated = FileSystemManager.createFolder(dumbWidgetsPath);
     if (!folderCreated) {
       return;
     }
 
     this.createFile(
-      widgetsPath,
-      "busy_overlay.dart",
-      new BusyOverlay("busy_overlay.dart", projectName).dartString
+      dumbWidgetsPath,
+      "busy.dart",
+      new Busy("busy.dart", projectName).dartString
     );
+
+    this.createFile(
+      dumbWidgetsPath,
+      "skeleton.dart",
+      new Skeleton("skeleton.dart", projectName).dartString
+    );
+
+    console.debug(`FolderCreated: ${folderCreated}`);
+  }
+
+  private initSmartWidgets(uiPath: string) {
+    let smartWidgetsPath = path.join(uiPath, "widgets", "smart");
+
+    let folderCreated = FileSystemManager.createFolder(smartWidgetsPath);
+    if (!folderCreated) {
+      return;
+    }
 
     console.debug(`FolderCreated: ${folderCreated}`);
   }

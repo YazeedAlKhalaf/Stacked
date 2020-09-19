@@ -1,4 +1,4 @@
-import { Base } from "../../../base";
+import { Base } from "../../base";
 
 export class CustomBaseViewModel extends Base {
   private _dartString: string;

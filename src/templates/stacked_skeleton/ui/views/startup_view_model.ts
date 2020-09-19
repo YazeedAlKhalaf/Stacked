@@ -1,5 +1,5 @@
-import { Base } from "../../../base";
-import { YamlHelper } from "../../../../../utils/yaml_helper";
+import { Base } from "../../base";
+import { YamlHelper } from "../../../../utils/yaml_helper";
 
 export class StartupViewModel extends Base {
   private _dartString: string;
@@ -20,13 +20,15 @@ class StartupViewModel extends CustomBaseViewModel {
     // Do Some Logic Here
     // The timer is a placeholder, but the view needs to be viewed at least for a second!
     Timer(
-      Duration(),
-      () => navigateToHomeView(),
+      Duration(
+        seconds: 2,
+      ),
+      () async => await navigateToHomeView(),
     );
   }
 
   Future navigateToHomeView() async {
-    await _navigationService.pushNamedAndRemoveUntil(Routes.homeViewRoute);
+    await _navigationService.pushNamedAndRemoveUntil(Routes.homeView);
   }
 }`;
   }

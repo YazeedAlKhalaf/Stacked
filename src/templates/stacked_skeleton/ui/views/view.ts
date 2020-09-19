@@ -1,5 +1,6 @@
-import { Base } from "../../../base";
-import { Utils } from "../../../../../utils";
+import { Base } from "../../base";
+import { Utils } from "../../../../utils";
+import { YamlHelper } from "../../../../utils/yaml_helper";
 
 export class View extends Base {
   private _dartString: string;
@@ -21,6 +22,7 @@ export class View extends Base {
 
     this._dartString = `import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:${YamlHelper.getProjectName()}/src/ui/widgets/dumb/skeleton.dart';
 
 import './${fileName}_view_model.dart';
 
@@ -36,7 +38,8 @@ class ${stackedView} extends StatelessWidget {
         ${stackedViewModel} model,
         Widget child,
       ) {
-        return Scaffold(
+        return Skeleton(
+          isBusy: model.isBusy,
           body: Center(
             child: Text(
               '${stackedView}',

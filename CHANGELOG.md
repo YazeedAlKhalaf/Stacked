@@ -6,6 +6,27 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+### Added
+
+- `app.ts` to cleanup `main.ts`
+- `skeleton.ts` to have a base for all files!
+- `busy.ts` template
+
+### Changed
+
+- `pubpspec.yaml` template is updated with new versions of the packages.
+- `locator.ts` template
+- `main.ts` template
+- `router.ts` template
+- `architecture.ts` template
+- `create_directory.ts` template
+- `view_file.ts` template
+
+## Removed
+
+- Removed old and useless packages
+- `app_color.ts` template
+
 ## [2.0.0] - 2020-7-15
 
 ## Added

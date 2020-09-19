@@ -11,10 +11,10 @@ export class Router extends Base {
 import 'package:${projectName}/src/ui/views/startup/startup_view.dart';
 import 'package:${projectName}/src/ui/views/home/home_view.dart';
 
-@MaterialAutoRouter(
+@AdaptiveAutoRouter(
   routes: <AutoRoute>[
-    MaterialRoute(page: StartupView, initial: true),
-    MaterialRoute(page: HomeView),
+    AdaptiveRoute(page: StartupView, initial: true),
+    AdaptiveRoute(page: HomeView),
   ],
 )
 class $Router {}`;
