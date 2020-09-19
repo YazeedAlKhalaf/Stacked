@@ -2,7 +2,7 @@
   "name": "stacked",
   "displayName": "Stacked",
   "description": "Stacked is a package for Stacked Architecture",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "publisher": "YazeedAlKhalaf",
   "icon": "assets/logo.png",
   "bugs": {
@@ -14,7 +14,7 @@
     "url": "https://github.com/YazeedAlKhalaf/Stacked"
   },
   "engines": {
-    "vscode": "^1.45.0"
+    "vscode": "^1.49.0"
   },
   "categories": [
     "Snippets"
