@@ -4,6 +4,8 @@ All notable changes to the "stacked" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [unreleased]
+
 ## [2.1.0] - 2020-9-19
 
 ### Added
