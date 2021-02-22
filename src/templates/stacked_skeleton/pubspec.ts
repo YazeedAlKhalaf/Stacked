@@ -11,7 +11,7 @@ export class Pubspec extends Base {
       projectName !== undefined ? projectName : "example_app"
     }
 description: A new Flutter project.
-version: 1.0.0+1
+version: 0.0.1+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -21,33 +21,32 @@ dependencies:
     sdk: flutter
   
   # state management
-  stacked: ^1.7.6
+  stacked: ^1.9.1+2
   
   # third-party services
-  stacked_services: ^0.5.4+3
+  stacked_services: ^0.6.7
   
   # navigation
-  auto_route: ^0.6.7
+  auto_route: ^0.6.9
   
   # inversion of control
-  get_it: ^4.0.4
-  injectable: ^1.0.4
+  get_it: ^5.0.6
+  injectable: ^1.1.0
   
   # icons
-  cupertino_icons: ^1.0.0
-  font_awesome_flutter: ^8.8.1
+  font_awesome_flutter: ^8.11.0
   
   # misc
-  logger: ^0.9.2
+  logger: ^0.9.4
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   # Generators
-  build_runner: ^1.10.1
-  auto_route_generator: ^0.6.8
-  injectable_generator: ^1.0.4
+  build_runner: ^1.11.1
+  auto_route_generator: ^0.6.10
+  injectable_generator: ^1.1.0
   
 flutter:
   uses-material-design: true

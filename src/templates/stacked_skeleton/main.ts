@@ -15,13 +15,13 @@ import 'package:${projectName}/src/app/generated/locator/locator.dart';
 main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Sets logging level
+  /// Sets logging level
   Logger.level = Level.debug;
 
-  // Register all the models and services before the app starts
+  /// Register all the models and services before the app starts
   setupLocator();
 
-  // Runs the app :)
+  /// Runs the app :)
   runApp(App());
 }`;
   }

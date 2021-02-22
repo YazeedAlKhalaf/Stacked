@@ -6,6 +6,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
+### Fixed
+
+- Router was called `Router` which was not really good, now `AppRouter`
+- Comments now are 3 slash comments not two slash comments
+- Utils is not a `laztSingleton` anymore, it is a UTILITY class
+
+### Changed
+
+- Updated all dependencies of `pubspec.yaml` template called `pubspec.ts`
+
 ## [2.1.0] - 2020-9-19
 
 ### Added

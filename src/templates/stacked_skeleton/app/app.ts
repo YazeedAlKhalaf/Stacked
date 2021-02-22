@@ -8,8 +8,7 @@ export class App extends Base {
     super(fileName, suffix);
 
     this._dartString = `import 'package:flutter/material.dart';
-import 'package:${projectName}/src/app/generated/locator/locator.dart';
-import 'package:${projectName}/src/app/generated/router/router.gr.dart' as RouterGR;
+import 'package:${projectName}/src/app/generated/router/router.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class App extends StatelessWidget {
@@ -18,9 +17,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "${projectName}",
-      initialRoute: RouterGR.Routes.startupView,
-      onGenerateRoute: RouterGR.Router().onGenerateRoute,
-      navigatorKey: locator<NavigationService>().navigatorKey,
+      initialRoute: Routes.startupView,
+      onGenerateRoute: AppRouter().onGenerateRoute,
+      navigatorKey: StackedService.navigatorKey,
       theme: ThemeData(
         brightness: Brightness.light,
       ),
