@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
+## [2.2.0] - 2020-02-22
+
 ### Fixed
 
 - Router was called `Router` which was not really good, now `AppRouter`
@@ -107,7 +109,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - `Stacked: New Stacked` command
 - Updated `README.md`
 
-[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.2.0
 [2.1.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.1.0
 [2.0.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.0.0
 [1.1.3]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v1.1.3
