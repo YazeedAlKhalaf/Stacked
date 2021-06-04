@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
+### [Changed]
+
+- Upgraded all dependencies to latest version
+
 ## [2.2.0] - 2020-02-22
 
 ### Fixed
