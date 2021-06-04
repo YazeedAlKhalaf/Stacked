@@ -6,9 +6,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
-### [Changed]
+### Changed
 
+- Null safety to dart snippets by [@saileshbro](https://github.com/saileshbro), PR [#5](https://github.com/YazeedAlKhalaf/Stacked/pull/5)
 - Upgraded all dependencies to latest version
+
+### Security
+
+- merged [#3](https://github.com/YazeedAlKhalaf/Stacked/pull/3) by [@dependabot](https://github.com/apps/dependabot)
+- merged [#4](https://github.com/YazeedAlKhalaf/Stacked/pull/4) by [@dependabot](https://github.com/apps/dependabot)
 
 ## [2.2.0] - 2020-02-22
 
