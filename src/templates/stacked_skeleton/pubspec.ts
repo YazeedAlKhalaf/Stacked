@@ -14,39 +14,37 @@ description: A new Flutter project.
 version: 0.0.1+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   
   # state management
-  stacked: ^1.9.1+2
-  
-  # third-party services
-  stacked_services: ^0.6.7
-  
+  stacked: ^2.1.7
+
   # navigation
-  auto_route: ^0.6.9
-  
+  auto_route: ^2.2.0
+
   # inversion of control
-  get_it: ^5.0.6
-  injectable: ^1.1.0
-  
-  # icons
-  font_awesome_flutter: ^8.11.0
+  get_it: ^7.1.3
+  injectable: ^1.4.1
   
   # misc
-  logger: ^0.9.4
+  logger: ^1.0.0
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   # Generators
-  build_runner: ^1.11.1
-  auto_route_generator: ^0.6.10
-  injectable_generator: ^1.1.0
+  build_runner: ^2.0.4
+  auto_route_generator: ^2.1.0
+  injectable_generator: ^1.4.1
+  flutter_launcher_icons: ^0.9.0
+
+  # linting
+  flutter_lints: ^1.0.0
   
 flutter:
   uses-material-design: true

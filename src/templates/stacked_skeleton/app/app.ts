@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import { Utils } from "../../../utils";
 import { Base } from "../base";
 
 export class App extends Base {
@@ -8,18 +9,18 @@ export class App extends Base {
     super(fileName, suffix);
 
     this._dartString = `import 'package:flutter/material.dart';
-import 'package:${projectName}/src/app/generated/router/router.dart';
-import 'package:stacked_services/stacked_services.dart';
+    import 'package:${projectName}/app/locator/locator.dart';
+    import 'package:${projectName}/app/services/router_service.dart';
 
-class App extends StatelessWidget {
+class ${Utils.convertToPascalCase(projectName)}App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "${projectName}",
-      initialRoute: Routes.startupView,
-      onGenerateRoute: AppRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
+    final RouterService _routerService = locator<RouterService>();
+
+    return MaterialApp.router(
+      title: "${Utils.convertToPascalCase(projectName)}",
+      routeInformationParser: _routerService.router.defaultRouteParser(),
+      routerDelegate: _routerService.router.delegate(),
       theme: ThemeData(
         brightness: Brightness.light,
       ),

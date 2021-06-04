@@ -6,10 +6,28 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
+### Added
+
+- `router_service.ts` template for navigation
+- `view_model.ts` has a new `init()` method by default.
+- `view_.ts` has `init()` method in `onModelReady` parameter.
+
 ### Changed
 
 - Null safety to dart snippets by [@saileshbro](https://github.com/saileshbro), PR [#5](https://github.com/YazeedAlKhalaf/Stacked/pull/5)
 - Upgraded all dependencies to latest version
+- [BREAKING] Now the skeleton is generated from `lib` directly not `lib/src`
+- All `pubspec.ts` packages updated to latest
+- Cleanup `yaml_helper.ts`
+- Generated folders are now inside `app` directly instead of `app/generated`
+
+### Removed
+
+- `third_party_services_modeule.ts` template
+- `ui_helpers.ts` template
+- `busy.ts` template
+- `skeleton.ts` template
+- `stacked_services` dependency from `pubspec.ts`
 
 ### Security
 

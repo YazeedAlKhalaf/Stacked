@@ -22,7 +22,6 @@ export class View extends Base {
 
     this._dartString = `import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:${YamlHelper.getProjectName()}/src/ui/widgets/dumb/skeleton.dart';
 
 import './${fileName}_view_model.dart';
 
@@ -33,13 +32,15 @@ class ${stackedView} extends StatelessWidget {
       useReactive ? "reactive" : "nonReactive"
     }(
       viewModelBuilder: () => ${stackedViewModel}(),
+      onModelReady: (${stackedViewModel} model) async {
+        await model.init();
+      },
       builder: (
         BuildContext context,
         ${stackedViewModel} model,
-        Widget child,
+        Widget? child,
       ) {
-        return Skeleton(
-          isBusy: model.isBusy,
+        return Scaffold(
           body: Center(
             child: Text(
               '${stackedView}',

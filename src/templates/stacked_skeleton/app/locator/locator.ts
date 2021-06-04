@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import { Base } from "../../../base";
+import { Base } from "../../base";
 
 export class Locator extends Base {
   private _dartString: string;
@@ -12,9 +12,9 @@ import 'package:injectable/injectable.dart';
 
 import 'locator.config.dart';
 
-final locator = GetIt.instance;
+final GetIt locator = GetIt.instance;
 
-@injectableInit
+@InjectableInit()
 void setupLocator() => $initGetIt(locator);`;
   }
 

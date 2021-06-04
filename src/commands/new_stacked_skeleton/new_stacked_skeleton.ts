@@ -21,7 +21,7 @@ export async function newStackedSkeltonCommand(uri: Uri) {
     return;
   }
 
-  new Architecture(projectPath, path.join(rootPath, "lib/src")).init();
+  new Architecture(projectPath, path.join(rootPath, "lib")).init();
   new ViewFile(rootPath, "home", true).createViewViewModel();
   new ViewFile(rootPath, "startup", true).createStartupViewViewModel();
 }

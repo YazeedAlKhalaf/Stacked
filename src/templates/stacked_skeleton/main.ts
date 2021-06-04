@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import { Utils } from "../../utils/utils";
 import { Base } from "./base";
 
 export class Main extends Base {
@@ -9,8 +10,8 @@ export class Main extends Base {
 
     this._dartString = `import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:${projectName}/src/app/app.dart';
-import 'package:${projectName}/src/app/generated/locator/locator.dart';
+import 'package:${projectName}/app/app.dart';
+import 'package:${projectName}/app/locator/locator.dart';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ main() {
   setupLocator();
 
   /// Runs the app :)
-  runApp(App());
+  runApp(${Utils.convertToPascalCase(projectName)}App());
 }`;
   }
 

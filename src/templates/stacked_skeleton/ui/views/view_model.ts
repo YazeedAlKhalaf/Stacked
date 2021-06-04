@@ -14,9 +14,11 @@ export class ViewModel extends Base {
     const pascalCaseStackedViewName = Utils.convertToPascalCase(className);
     const stackedViewModel = `${pascalCaseStackedViewName}ViewModel`;
 
-    this._dartString = `import 'package:${YamlHelper.getProjectName()}/src/ui/global/custom_base_view_model.dart';
+    this._dartString = `import 'package:${YamlHelper.getProjectName()}/app/core/custom_base_view_model.dart';
 
-class ${stackedViewModel} extends CustomBaseViewModel {}
+class ${stackedViewModel} extends CustomBaseViewModel {
+  Future<void> init() async {}
+}
 `;
   }
 

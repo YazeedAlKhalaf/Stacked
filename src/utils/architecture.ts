@@ -7,17 +7,14 @@ import { Logger } from "../templates/stacked_skeleton/app/utils/logger";
 import { Main } from "../templates/stacked_skeleton/main";
 import { YamlHelper } from "./yaml_helper";
 import * as UtilsTemplate from "../templates/stacked_skeleton/app/utils/utils";
-import { ThirdPartyServicesModule } from "../templates/stacked_skeleton/app/services/third_party_services_module";
-import { Locator } from "../templates/stacked_skeleton/app/generated/locator/locator";
-import { Router } from "../templates/stacked_skeleton/app/generated/router/router";
-import { UiHelpers } from "../templates/stacked_skeleton/ui/global/ui_helpers";
+import { Locator } from "../templates/stacked_skeleton/app/locator/locator";
+import { Router } from "../templates/stacked_skeleton/app/router/router";
 import { Pubspec } from "../templates/stacked_skeleton/pubspec";
 import { VsCodeActions } from "./vs_code_actions";
-import { Busy } from "../templates/stacked_skeleton/ui/widgets/dumb/busy";
-import { CustomBaseViewModel } from "../templates/stacked_skeleton/ui/global/custom_base_view_model";
-import { Skeleton } from "../templates/stacked_skeleton/ui/widgets/dumb/skeleton";
+import { CustomBaseViewModel } from "../templates/stacked_skeleton/app/core/custom_base_view_model";
 import { Constants } from "../templates/stacked_skeleton/app/utils/constants";
 import { App } from "../templates/stacked_skeleton/app/app";
+import { RouterService } from "../templates/stacked_skeleton/app/services/router_service";
 
 let projectName: string;
 projectName = YamlHelper.getProjectName();
@@ -48,39 +45,8 @@ export class Architecture {
 
   private initAssets() {
     let assetsPath = path.join(this.projectPath, "assets");
-    let animPath = path.join(assetsPath, "animations");
-    let fontsPath = path.join(assetsPath, "fonts");
-    let imagesPath = path.join(assetsPath, "images");
-    let iconsPath = path.join(imagesPath, "icons");
-    let placeholdersPath = path.join(imagesPath, "placeholders");
-    let miscPath = path.join(assetsPath, "misc");
 
-    let folderCreated = FileSystemManager.createFolder(animPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    folderCreated = FileSystemManager.createFolder(fontsPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    folderCreated = FileSystemManager.createFolder(imagesPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    folderCreated = FileSystemManager.createFolder(iconsPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    folderCreated = FileSystemManager.createFolder(placeholdersPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    folderCreated = FileSystemManager.createFolder(miscPath);
+    let folderCreated = FileSystemManager.createFolder(assetsPath);
     if (!folderCreated) {
       return;
     }
@@ -88,10 +54,12 @@ export class Architecture {
 
   private initApp() {
     let appPath = path.join(this.rootPath, "app");
+    this.initCore(appPath);
     this.initServices(appPath);
     this.initUtils(appPath);
     this.initModels(appPath);
-    this.initGenerated(appPath);
+    this.initLocator(appPath);
+    this.initRouter(appPath);
 
     this.createFile(
       appPath,
@@ -102,7 +70,6 @@ export class Architecture {
 
   private initUi() {
     let uiPath = path.join(this.rootPath, "ui");
-    this.initGlobal(uiPath);
     this.initViews(uiPath);
     this.initWidgets(uiPath);
   }
@@ -134,20 +101,8 @@ export class Architecture {
     );
   }
 
-  private initGenerated(appPath: string) {
-    let generatedPath = path.join(appPath, "generated");
-
-    let folderCreated = FileSystemManager.createFolder(generatedPath);
-    if (!folderCreated) {
-      return;
-    }
-
-    this.initLocator(generatedPath);
-    this.initRouter(generatedPath);
-  }
-
-  private initLocator(generatedPath: string) {
-    let locatorPath = path.join(generatedPath, "locator");
+  private initLocator(appPath: string) {
+    let locatorPath = path.join(appPath, "locator");
 
     let folderCreated = FileSystemManager.createFolder(locatorPath);
     if (!folderCreated) {
@@ -161,8 +116,8 @@ export class Architecture {
     );
   }
 
-  private initRouter(generatedPath: string) {
-    let routerPath = path.join(generatedPath, "router");
+  private initRouter(appPath: string) {
+    let routerPath = path.join(appPath, "router");
 
     let folderCreated = FileSystemManager.createFolder(routerPath);
     if (!folderCreated) {
@@ -186,9 +141,8 @@ export class Architecture {
 
     this.createFile(
       servicesPath,
-      "third_party_services_module.dart",
-      new ThirdPartyServicesModule("third_party_services_module.dart")
-        .dartString
+      "router_service.dart",
+      new RouterService("router_service.dart", projectName).dartString
     );
   }
 
@@ -209,22 +163,16 @@ export class Architecture {
     console.debug(`FolderCreated: ${folderCreated}`);
   }
 
-  private initGlobal(uiPath: string) {
-    let globalPath = path.join(uiPath, "global");
+  private initCore(appPath: string) {
+    let corePath = path.join(appPath, "core");
 
-    let folderCreated = FileSystemManager.createFolder(globalPath);
+    let folderCreated = FileSystemManager.createFolder(corePath);
     if (!folderCreated) {
       return;
     }
 
     this.createFile(
-      globalPath,
-      "ui_helpers.dart",
-      new UiHelpers("ui_helpers.dart").dartString
-    );
-
-    this.createFile(
-      globalPath,
+      corePath,
       "custom_base_view_model.dart",
       new CustomBaseViewModel("custom_base_view_model.dart").dartString
     );
@@ -244,18 +192,6 @@ export class Architecture {
     if (!folderCreated) {
       return;
     }
-
-    this.createFile(
-      dumbWidgetsPath,
-      "busy.dart",
-      new Busy("busy.dart", projectName).dartString
-    );
-
-    this.createFile(
-      dumbWidgetsPath,
-      "skeleton.dart",
-      new Skeleton("skeleton.dart", projectName).dartString
-    );
 
     console.debug(`FolderCreated: ${folderCreated}`);
   }

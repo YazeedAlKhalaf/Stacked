@@ -63,7 +63,6 @@ export class ViewFile {
       return path.join(
         this.rootPath,
         "lib",
-        "src",
         "ui",
         "views",
         this.snakeCasedFileName
