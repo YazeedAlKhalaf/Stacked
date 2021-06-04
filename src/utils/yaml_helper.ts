@@ -47,7 +47,7 @@ export class YamlHelper {
     let json;
     try {
       console.debug(`toJSON: ${text}`);
-      json = yaml.safeLoad(text, { schema: yaml.JSON_SCHEMA });
+      json = yaml.load(text, { schema: yaml.JSON_SCHEMA });
     } catch (e) {
       VsCodeActions.showErrorMessage("Could not parse the selection as YAML.");
       console.error(e);
