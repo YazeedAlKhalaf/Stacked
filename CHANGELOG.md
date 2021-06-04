@@ -139,7 +139,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - `Stacked: New Stacked` command
 - Updated `README.md`
 
-[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v2.2.0...HEAD
+[unreleased]: https://github.com/YazeedAlKhalaf/Stacked/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v3.0.0
 [2.2.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.2.0
 [2.1.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.1.0
 [2.0.0]: https://github.com/YazeedAlKhalaf/Stacked/releases/tag/v2.0.0
