@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [unreleased]
 
+## [3.0.0] - Jun 4, 2021
+
 ### Added
 
 - `router_service.ts` template for navigation
@@ -34,7 +36,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - merged [#3](https://github.com/YazeedAlKhalaf/Stacked/pull/3) by [@dependabot](https://github.com/apps/dependabot)
 - merged [#4](https://github.com/YazeedAlKhalaf/Stacked/pull/4) by [@dependabot](https://github.com/apps/dependabot)
 
-## [2.2.0] - 2020-02-22
+## [2.2.0] - 2021-02-22
 
 ### Fixed
 
